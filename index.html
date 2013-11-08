@@ -104,8 +104,8 @@
                         ## Controllers
                         ### Receive a Request, Return a Response
 
-                            public static Result index() {
-                                return ok(index.render("Your new application is ready."));
+                            def index = Action {
+                              Ok(index.render("Your new application is ready."))
                             }
                     </script>
                 </section>
@@ -279,7 +279,7 @@
                     <section>
                         Specify Dependencies in <code>build.sbt</code>
                         <pre><code>"org.webjars" %% "webjars-play" % "2.2.0",
-                        "org.webjars" % "bootstrap" % "2.3.1"</code></pre>
+"org.webjars" % "bootstrap" % "2.3.1"</code></pre>
 
                         Create Route for <code>WebJarAssets</code> Controller
                         <pre><code>GET     /webjars/*file              controllers.WebJarAssets.at(file)</code></pre>
