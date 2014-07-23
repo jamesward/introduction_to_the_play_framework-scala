@@ -54,18 +54,17 @@
                         * RESTful by default
                         * Stateless
                         * Reactive
-                        * Asset Compiler
+                        * Asset Pipeline
                         * First-class JSON
                     </script>
                 </section>
 
                 <section data-markdown>
                     <script type="text/template">
-                        ## Get Started
-                        #### Typesafe Activator - Reactive Development Tool for Play
-                        typesafe.com/platform/getstarted
+                        ## Get Started with Typesafe Activator
+                        #### typesafe.com/platform/getstarted
 
-                        * 35+ Templates with Tutorials
+                        * 150+ Templates with Tutorials
                         * Web UI and CLI
                         * Edit Code in Browser, Eclipse, IntelliJ IDEA, or other editor
                         * Run App & Tests via Browser
@@ -252,15 +251,53 @@
                 </section>
 
                 <section>
-                    <h2>Asset Compilers</h2>
-                    <h3>Unified Client/Server Development</h3>
+                    <section>
+                        <h2>Asset Pipeline via sbt-web</h2>
+                        <h3>Unified Client/Server Development</h3>
 
-                    <ul>
-                        <li>assets/javascripts/foo.{js|coffee}</li>
-                        <li>assets/stylesheets/foo.less</li>
-                    </ul>
+                        <ul>
+                            <li>Incremental</li>
+                            <li>Parallel</li>
+                            <li>Node native or Node JVM (Trireme)</li>
+                            <li>Dependency management with WebJars and/or NPM</li>
+                            <li>Any sbt project</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <small>
+                            <ul>
+                                <li>sbt-autoprefixer</li>
+                                <li>sbt-closure</li>
+                                <li>sbt-coffeescript</li>
+                                <li>sbt-concat</li>
+                                <li>sbt-css-compress</li>
+                                <li>sbt-digest</li>
+                                <li>sbt-dustjs-linkedin</li>
+                                <li>sbt-filter</li>
+                                <li>sbt-gzip</li>
+                                <li>sbt-html-minifier</li>
+                                <li>sbt-imagemin</li>
+                                <li>sbt-jshint</li>
+                                <li>sbt-jst</li>
+                                <li>sbt-less</li>
+                                <li>sbt-mocha</li>
+                                <li>sbt-purescript</li>
+                                <li>sbt-rjs</li>
+                                <li>sbt-simple-url-update</li>
+                                <li>sbt-stylus</li>
+                                <li>sbt-uglify</li>
+                            </ul>
+                        </small>
+                    </section>
+                    <section>
+                        <h2>Setup</h2>
+                        <span>project/plugins.sbt</span>
+                        <pre><code>addSbtPlugin("com.typesafe.sbt" % "sbt-coffeescript" % "1.0.0")</code></pre>
+
+                        <span>assets/javascripts/foo.coffee</span>
                    
-                    <pre><code>&lt;script src='@routes.Assets.at("javascripts/foo.min.js")'&gt;&lt;/script&gt;</code></pre>
+                        <pre><code>&lt;script src='@routes.Assets.at("javascripts/foo.min.js")'&gt;&lt;/script&gt;</code></pre>
+                    </section>
                 </section>
 
                 <section>
@@ -278,14 +315,10 @@
                     </section>
                     <section>
                         Specify Dependencies in <code>build.sbt</code>
-                        <pre><code>"org.webjars" %% "webjars-play" % "2.2.0",
-"org.webjars" % "bootstrap" % "2.3.1"</code></pre>
-
-                        Create Route for <code>WebJarAssets</code> Controller
-                        <pre><code>GET     /webjars/*file              controllers.WebJarAssets.at(file)</code></pre>
+                        <pre><code>"org.webjars" % "jquery" % "2.1.1"</code></pre>
 
                         Use a WebJar
-                        <pre><code>&lt;script src='@routes.WebJarAssets.at(WebJarAssets.locate("jquery.min.js"))'&gt;&lt;/script&gt;</code></pre>
+                        <pre><code>&lt;script src='@routes.Assets.at("lib/jquery/jquery.min.js)'&gt;&lt;/script&gt;</code></pre>
                     </section>
                 </section>
 
